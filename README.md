@@ -1,10 +1,10 @@
 ## Week :
 
-Week ## project for Skill Distillery Java Bootcamp
+Week 3 project for Skill Distillery Java Bootcamp
 
 ### Overview
 
-
+Jets
 
 ### Technologies Used
 
