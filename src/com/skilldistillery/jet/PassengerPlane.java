@@ -5,21 +5,25 @@ import java.nio.CharBuffer;
 
 public class PassengerPlane extends Jets implements Rideable
 {
-	boolean passengersBoarded;
-
-	public PassengerPlane() {
-	}
-	
-	public PassengerPlane(String jetModel, int speed, int range, int price, int fuelCap, boolean passengersBoarded) {
-		super(jetModel, speed, range, price, fuelCap);
-		this.passengersBoarded = passengersBoarded;
-	}
-
-
+	private boolean passengersBoarded;
 
 	public boolean isPassengersBoarded()
 	{
 		return passengersBoarded;
+	}
+
+	public PassengerPlane() {
+	}
+
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append(super.toString());
+		builder.append("PassengerPlane [passengersBoarded=");
+		builder.append(passengersBoarded);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public void setPassengersBoarded(boolean passengersBoarded)
@@ -27,11 +31,16 @@ public class PassengerPlane extends Jets implements Rideable
 		this.passengersBoarded = passengersBoarded;
 	}
 
+	public PassengerPlane(String type, String jetModel, int range, int fuelCap, double speed, long price,
+			boolean passengersBoarded) {
+		super(type, jetModel, range, fuelCap, speed, price);
+		this.passengersBoarded = passengersBoarded;
+	}
+
 	@Override
 	public void jetFly()
 	{
-		// TODO Auto-generated method stub
-
+		System.out.println("Passnger Plane is now in flight.");
 	}
 
 	@Override

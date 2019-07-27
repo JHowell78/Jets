@@ -2,21 +2,31 @@ package com.skilldistillery.jet;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class JetsAppRun
 {
 	Scanner kb = new Scanner(System.in);
+	AirField airField = new AirField();
 
 	public static void main(String[] args)
 	{
 		JetsAppRun play = new JetsAppRun();
+//		play.readTxtFile(play);
 		play.menu();
+
+	}
+	public JetsAppRun() {
 
 	}
 
 	public void menu()
 	{
+		boolean choice = true;
+		int playerChoice = kb.nextInt();
+		
 		System.out.println("Welcome to Jet Simulator 9000");
 		System.out.println("Please choose one of the following: ");
 		System.out.println();
@@ -30,24 +40,26 @@ public class JetsAppRun
 		System.out.println("8. Remove a Jet");
 		System.out.println("9. Quit");
 
-		int playerChoice = kb.nextInt();
 
-		while (playerChoice != 9)
+		while (choice = true)
 		{
 			switch (playerChoice)
 			{
 			case 1:
 				System.out.println("All available jets:");
-				// get all toStrings
-
+				System.out.println();
+				airField.showJets();
 				break;
 			case 2:
 				System.out.println("All Jets to the Runway!");
+				System.out.println();
+				airField.FlyAll();
 //			AirField.flyAll();  //may need seperate method using foreach loop from arraylist
 
 				break;
 			case 3:
 				System.out.println("The fastest jet we have is: ");
+				airField.fastPlane();
 				// get fastest jet by speed
 
 				break;
@@ -78,36 +90,19 @@ public class JetsAppRun
 				break;
 			case 9:
 				System.out.println("Thanks for Playing!");
-
+				choice = false;
 				break;
 
 			default:
 				System.out.println("Please enter a valid choice");
 				menu();
-				break;
 			}
+			break;
 		}
 	}
 
-	public void name()
-	{
+	
 
-	}
-
-	public void readTxtFile()
-	{
-		try (BufferedReader br = new BufferedReader(new FileReader("planes.txt")))
-		{
-
-		} catch (Exception e)
-		{
-			// TODO: handle exception
-		}
-	}
-
-	// buffered reader/file reader stuff
-
-	// split by , if loop on [0] for type of plane
-	// parse in info for each field
+//	public void readTxtFile(JetsAppRun app) 
 
 }

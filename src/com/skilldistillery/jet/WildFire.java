@@ -7,10 +7,15 @@ public class WildFire extends Jets implements Dumpable
 	public WildFire() {
 	}
 	
-	public WildFire(String jetModel, int speed, int range, int price, int fuelCap, String waterBucket) {
-		super(jetModel, speed, range, price, fuelCap);
+	
+
+	public WildFire(String type, String jetModel, int range, int fuelCap, double speed, long price,
+			String waterBucket) {
+		super(type, jetModel, range, fuelCap, speed, price);
 		this.waterBucket = waterBucket;
 	}
+
+
 
 	public String getWaterBucket()
 	{

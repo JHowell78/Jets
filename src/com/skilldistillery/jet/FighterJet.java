@@ -2,18 +2,21 @@ package com.skilldistillery.jet;
 
 public class FighterJet extends Jets implements Fightable
 {
-	boolean weaponsReady;
-	
-	public FighterJet(String jetModel, int speed, int range, int price, int fuelCap, boolean weaponsReady) {
-		super(jetModel, speed, range, price, fuelCap);
+	private boolean weaponsReady;
+
+	public FighterJet(String type, String jetModel, int range, int fuelCap, double speed, long price,
+			boolean weaponsReady) {
+		super(type, jetModel, range, fuelCap, speed, price);
 		this.weaponsReady = weaponsReady;
 	}
+
 	@Override
 	public void jetFly()
 	{
 	}
+
 	public FighterJet() {
-		
+
 	}
 
 	@Override
@@ -21,14 +24,26 @@ public class FighterJet extends Jets implements Fightable
 	{
 		System.out.println("BANG BANG BANG BOOM!!!");
 	}
+
 	public boolean isWeaponsReady()
 	{
 		return weaponsReady;
 	}
+
 	public void setWeaponsReady(boolean weaponsReady)
 	{
 		this.weaponsReady = weaponsReady;
 	}
-	
+
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append(super.toString());
+		builder.append("FighterJet [weaponsReady=");
+		builder.append(weaponsReady);
+		builder.append("]");
+		return builder.toString();
+	}
 
 }

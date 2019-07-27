@@ -2,29 +2,36 @@ package com.skilldistillery.jet;
 
 public class CargoPlane extends Jets implements Shippable
 {
-	boolean cargoLoaded;
+	private boolean cargoLoaded;
 	
-	public CargoPlane()
-	{
-	}
-
-	public CargoPlane(String jetModel, int speed, int range, int price, int fuelCap, boolean cargoLoaded) {
-		super(jetModel, speed, range, price, fuelCap);
-		this.cargoLoaded = cargoLoaded;
-	}
-
-
-
 	public boolean isCargoLoaded()
 	{
 		return cargoLoaded;
 	}
+	public CargoPlane()
+	{
+	}
 
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append(super.toString());
+		builder.append("CargoPlane [cargoLoaded=");
+		builder.append(cargoLoaded);
+		builder.append("]");
+		return builder.toString();
+	}
 	public void setCargoLoaded(boolean cargoLoaded)
 	{
 		this.cargoLoaded = cargoLoaded;
 	}
-
+	public CargoPlane(String type, String jetModel, int range, int fuelCap, double speed, long price,
+			boolean cargoLoaded) {
+		super(type, jetModel, range, fuelCap, speed, price);
+		this.cargoLoaded = cargoLoaded;
+	}
 	@Override
 	public void addCargo()
 	{
@@ -34,8 +41,7 @@ public class CargoPlane extends Jets implements Shippable
 	@Override
 	public void jetFly()
 	{
-		// TODO Auto-generated method stub
-		
+		System.out.println("Cargo Plane is now in flight.");
 	}
 
 }

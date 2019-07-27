@@ -2,61 +2,47 @@ package com.skilldistillery.jet;
 
 public abstract class Jets
 {
-	private String jetModel;
-	private int speed, range, price, fuelCap;
-	
+	private String type, jetModel;
+	private int range, fuelCap;
+	private double speed;
+	private long price;
+
 	public Jets() {
-		
+
 	}
-	public Jets(String jetModel, int speed, int range, int price, int fuelCap) {
+
+	public Jets(String type, String jetModel, int range, int fuelCap, double speed, long price) {
 		super();
+		this.type = type;
 		this.jetModel = jetModel;
-		this.speed = speed;
 		this.range = range;
-		this.price = price;
 		this.fuelCap = fuelCap;
+		this.speed = speed;
+		this.price = price;
 	}
-	public abstract void jetFly(); 
-	//show all deets (tostring) 
-	//time left on flight until empty
-	
-	
-	
+
+	public abstract void jetFly();
+
+	// show all deets (tostring)
+	// time left on flight until empty
+	public String getType()
+	{
+		return type;
+	}
+
+	public void setType(String type)
+	{
+		this.type = type;
+	}
+
 	public String getJetModel()
 	{
 		return jetModel;
 	}
 
-	@Override
-	public String toString()
-	{
-		StringBuilder builder = new StringBuilder();
-		builder.append("Jets [jetModel=");
-		builder.append(jetModel);
-		builder.append(", speed=");
-		builder.append(speed);
-		builder.append(", range=");
-		builder.append(range);
-		builder.append(", price=");
-		builder.append(price);
-		builder.append(", fuelCap=");
-		builder.append(fuelCap);
-		builder.append("]");
-		return builder.toString();
-	}
 	public void setJetModel(String jetModel)
 	{
 		this.jetModel = jetModel;
-	}
-
-	public int getSpeed()
-	{
-		return speed;
-	}
-
-	public void setSpeed(int speed)
-	{
-		this.speed = speed;
 	}
 
 	public int getRange()
@@ -69,16 +55,6 @@ public abstract class Jets
 		this.range = range;
 	}
 
-	public int getPrice()
-	{
-		return price;
-	}
-
-	public void setPrice(int price)
-	{
-		this.price = price;
-	}
-
 	public int getFuelCap()
 	{
 		return fuelCap;
@@ -88,11 +64,45 @@ public abstract class Jets
 	{
 		this.fuelCap = fuelCap;
 	}
-	
 
-	// constructor
-	//toString
-	//getSet
-	
-	
+	public double getSpeed()
+	{
+		return speed;
+	}
+
+	public void setSpeed(double speed)
+	{
+		this.speed = speed;
+	}
+
+	public long getPrice()
+	{
+		return price;
+	}
+
+	public void setPrice(long price)
+	{
+		this.price = price;
+	}
+
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("Jet Type: ");
+		builder.append(type);
+		builder.append(", Model: ");
+		builder.append(jetModel);
+		builder.append(", range: ");
+		builder.append(range);
+		builder.append(", Fuel Capacity: ");
+		builder.append(fuelCap);
+		builder.append(", Max Speed: ");
+		builder.append(speed);
+		builder.append(", Price: ");
+		builder.append(price);
+		builder.append(" ");
+		return builder.toString();
+	}
+
 }
