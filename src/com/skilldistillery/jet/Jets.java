@@ -3,7 +3,7 @@ package com.skilldistillery.jet;
 public abstract class Jets
 {
 	private String type, jetModel;
-	private int range, fuelCap;
+	private int range;
 	private double speed;
 	private long price;
 
@@ -11,20 +11,22 @@ public abstract class Jets
 
 	}
 
-	public Jets(String type, String jetModel, int range, int fuelCap, double speed, long price) {
+	
+
+	public Jets(String type, String jetModel, int range, double speed, long price) {
 		super();
 		this.type = type;
 		this.jetModel = jetModel;
 		this.range = range;
-		this.fuelCap = fuelCap;
 		this.speed = speed;
 		this.price = price;
 	}
 
+
+
 	public abstract void jetFly();
 
-	// show all deets (tostring)
-	// time left on flight until empty
+
 	public String getType()
 	{
 		return type;
@@ -55,16 +57,6 @@ public abstract class Jets
 		this.range = range;
 	}
 
-	public int getFuelCap()
-	{
-		return fuelCap;
-	}
-
-	public void setFuelCap(int fuelCap)
-	{
-		this.fuelCap = fuelCap;
-	}
-
 	public double getSpeed()
 	{
 		return speed;
@@ -93,13 +85,11 @@ public abstract class Jets
 		builder.append(type);
 		builder.append(", Model: ");
 		builder.append(jetModel);
-		builder.append(", range: ");
+		builder.append(", Range: ");
 		builder.append(range);
-		builder.append(", Fuel Capacity: ");
-		builder.append(fuelCap);
 		builder.append(", Max Speed: ");
 		builder.append(speed);
-		builder.append(", Price: ");
+		builder.append(" MPH, Price: $");
 		builder.append(price);
 		builder.append(" ");
 		return builder.toString();
