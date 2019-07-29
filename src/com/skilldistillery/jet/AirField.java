@@ -3,10 +3,8 @@ package com.skilldistillery.jet;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 public class AirField
 {
@@ -164,17 +162,19 @@ public class AirField
 		newJet = new JetsImpl(model, range, speed, price);
 		planes.add(newJet);
 		System.out.println();
-		System.out.println("Your new plane: " + newJet);
+		System.out.println("Your new jet info: " + newJet);
+		System.out.println();
+		System.out.println("New Jet Inventory: ");
 		System.out.println();
 		showJets();
 	}
-	
+
 	public void removePlane(Scanner kb)
 	{
 		System.out.println("Please choose the corresponding number to remove a plane: ");
 		for (int i = 0; i < planes.size(); i++)
 		{
-			System.out.println((i + 1)  + ": " + planes.get(i).getJetModel());
+			System.out.println((i + 1) + ": " + planes.get(i).getJetModel());
 		}
 		int removeChoice = kb.nextInt();
 		planes.remove(removeChoice - 1);
@@ -182,4 +182,5 @@ public class AirField
 		System.out.println();
 		showJets();
 	}
+
 }

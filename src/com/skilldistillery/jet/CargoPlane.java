@@ -25,7 +25,6 @@ public class CargoPlane extends Jets implements Shippable
 	{
 		cargoLoaded = true;
 		System.out.println("Loading boxes on " + this.getJetModel());
-		System.out.println("Ready for takeoff");
 	}
 
 	@Override
