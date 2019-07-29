@@ -38,23 +38,23 @@ public class AirField
 				if (jet[0].equals("Passenger"))
 				{
 					boolean passengersBoarded = Boolean.parseBoolean(jet[6]);
-					newJet = new PassengerPlane(type, model, range, speed, price, passengersBoarded);
+					newJet = new PassengerPlane(model, range, speed, price, passengersBoarded);
 				}
 
 				if (jet[0].equals("Cargo"))
 				{
 					boolean cargoLoaded = Boolean.parseBoolean(jet[6]);
-					newJet = new CargoPlane(type, model, range, speed, price, cargoLoaded);
+					newJet = new CargoPlane(model, range, speed, price, cargoLoaded);
 				}
 				if (jet[0].equals("Fighter"))
 				{
 					boolean weaponsReady = Boolean.parseBoolean(jet[6]);
-					newJet = new FighterJet(type, model, range, speed, price, weaponsReady);
+					newJet = new FighterJet(model, range, speed, price, weaponsReady);
 				}
 				if (jet[0].equals("Crop Duster"))
 				{
 					boolean tankFull = Boolean.parseBoolean(jet[6]);
-					newJet = new CropDuster(type, model, range, speed, price, tankFull);
+					newJet = new CropDuster(model, range, speed, price, tankFull);
 				}
 				planes.add(newJet);
 			}
@@ -84,7 +84,7 @@ public class AirField
 			int range = jets.getRange();
 			double speed = jets.getSpeed();
 			timeCanFly = range / speed;
-			System.out.println( model + " can fly:   " );
+			System.out.println(model + " can fly:   ");
 			System.out.printf("%.2f", timeCanFly);
 			System.out.println(" hours of flight time until out of fuel");
 			System.out.println();
@@ -125,31 +125,33 @@ public class AirField
 		System.out.println();
 		System.out.println(flyLong.toString());
 	}
+
 	public void shipCargo()
 	{
 		for (Jets jets : planes)
 		{
 			if (jets instanceof CargoPlane)
 			{
-				((CargoPlane)jets).addCargo();
+				((CargoPlane) jets).addCargo();
 			}
 		}
 	}
+
 	public void passengerPlaneBoard()
 	{
 		for (Jets jets : planes)
 		{
 			if (jets instanceof PassengerPlane)
-		{
-			((PassengerPlane) jets).boardPlane();
-		}
-			
+			{
+				((PassengerPlane) jets).boardPlane();
+			}
 		}
 	}
+
 	public void addPlane(Scanner kb)
 	{
 		Jets newJet = null;
-	
+
 		System.out.println("Please enter the model of your plane: ");
 		String model = kb.next();
 		System.out.println("Now enter the top speed of your plane in MPH: ");
@@ -158,13 +160,26 @@ public class AirField
 		int range = kb.nextInt();
 		System.out.println("Finally enter the price in US dollars of your plane: ");
 		long price = kb.nextLong();
-		
-		newJet = new JetsImpl(model, model, range, speed, price);
+
+		newJet = new JetsImpl(model, range, speed, price);
 		planes.add(newJet);
 		System.out.println();
 		System.out.println("Your new plane: " + newJet);
 		System.out.println();
 		showJets();
 	}
-
+	
+	public void removePlane(Scanner kb)
+	{
+		System.out.println("Please choose the corresponding number to remove a plane: ");
+		for (int i = 0; i < planes.size(); i++)
+		{
+			System.out.println((i + 1)  + ": " + planes.get(i).getJetModel());
+		}
+		int removeChoice = kb.nextInt();
+		planes.remove(removeChoice - 1);
+		System.out.println("Planes left in Air Field: ");
+		System.out.println();
+		showJets();
+	}
 }

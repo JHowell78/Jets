@@ -2,30 +2,27 @@ package com.skilldistillery.jet;
 
 public class CropDuster extends Jets implements Sprayable
 {
-	private boolean tankFull;
+	private boolean sprayTankFull;
 	
-	
-	
-
-	public CropDuster(String type, String jetModel, int range, double speed, long price, boolean tankFull) {
-		super(type, jetModel, range, speed, price);
-		this.tankFull = tankFull;
+	public CropDuster(String jetModel, int range, double speed, long price, boolean tankFull) {
+		super(jetModel, range, speed, price);
+		this.sprayTankFull = tankFull;
 	}
 
 	public boolean isTankFull()
 	{
-		return tankFull;
+		return sprayTankFull;
 	}
 
 	public void setTankFull(boolean tankFull)
 	{
-		this.tankFull = tankFull;
+		this.sprayTankFull = tankFull;
 	}
 
 	@Override
 	public void dustCrops()
 	{
-		tankFull = true;
+		sprayTankFull = true;
 		System.out.println(this.getJetModel() + " is spraying the crop with fertalizer" );
 	}
 

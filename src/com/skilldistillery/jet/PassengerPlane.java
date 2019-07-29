@@ -15,17 +15,7 @@ public class PassengerPlane extends Jets implements Rideable
 	public PassengerPlane() {
 	}
 
-	@Override
-	public String toString()
-	{
-		StringBuilder builder = new StringBuilder();
-		builder.append(super.toString());
-//		builder.append("PassengerPlane [passengersBoarded=");
-//		builder.append(passengersBoarded);
-//		builder.append("]");
-		return builder.toString();
-	}
-
+	
 	public void setPassengersBoarded(boolean passengersBoarded)
 	{
 		this.passengersBoarded = passengersBoarded;
@@ -33,9 +23,9 @@ public class PassengerPlane extends Jets implements Rideable
 
 	
 
-	public PassengerPlane(String type, String jetModel, int range, double speed, long price,
+	public PassengerPlane(String jetModel, int range, double speed, long price,
 			boolean passengersBoarded) {
-		super(type, jetModel, range, speed, price);
+		super(jetModel, range, speed, price);
 		this.passengersBoarded = passengersBoarded;
 	}
 

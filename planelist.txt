@@ -1,6 +1,6 @@
 Passenger, Boeing 737 Max, 900, 1400, 2000000, 500, false
 Fighter, F 15, 1200, 1100, 30000000, 800, false
-Passenger, Airbus 187, 850, 1200, 1500000, 450, false
 Cargo, UPS Delivery, 850, 1150, 1250000, 400, false
-Passenger, Leer Jet, 1000, 1500, 25000000, 600, false
+Passenger, Leer Jet, 1000, 1700, 25000000, 600, false
 Cargo, FedEx Delivery, 600, 1000, 1500000, 800, false
+Fighter, Stealth Bomber, 1400, 1300, 42000000, 600, false

@@ -1,6 +1,5 @@
 package com.skilldistillery.jet;
 
-
 import java.util.Scanner;
 
 public class JetsAppRun
@@ -20,9 +19,14 @@ public class JetsAppRun
 
 	public void menu()
 	{
-		
+		boolean menu = true;
+		int playerChoice;
+
+		while (menu)
+		{
 
 			System.out.println("Welcome to Jet Simulator 9000");
+			System.out.println();
 			System.out.println("Please choose one of the following: ");
 			System.out.println();
 			System.out.println("1. List Fleet");
@@ -35,7 +39,7 @@ public class JetsAppRun
 			System.out.println("8. Remove a Jet");
 			System.out.println("9. Quit");
 
-			int playerChoice = kb.nextInt();
+			playerChoice = kb.nextInt();
 			switch (playerChoice)
 			{
 			case 1:
@@ -43,14 +47,12 @@ public class JetsAppRun
 				System.out.println();
 				airField.showJets();
 				System.out.println();
-				menu();
 				break;
 			case 2:
 				System.out.println("All Jets to the Runway!");
 				System.out.println();
 				airField.flyAll();
 				System.out.println();
-				menu();
 
 				break;
 			case 3:
@@ -58,7 +60,6 @@ public class JetsAppRun
 				System.out.println();
 				airField.fastPlane();
 				System.out.println();
-				menu();
 
 				break;
 			case 4:
@@ -66,14 +67,13 @@ public class JetsAppRun
 				System.out.println();
 				airField.flyLongest();
 				System.out.println();
-				menu();
 
 				break;
 			case 5:
 				System.out.println("Cargo Planes: ");
+				System.out.println();
 				airField.shipCargo();
 				System.out.println();
-				menu();
 
 				break;
 			case 6:
@@ -81,32 +81,30 @@ public class JetsAppRun
 				System.out.println();
 				airField.passengerPlaneBoard();
 				System.out.println();
-				menu();
 
 				break;
 			case 7:
 				System.out.println("Add a new Jet: ");
+				System.out.println();
 				airField.addPlane(kb);
 				System.out.println();
-				menu();
 				break;
+
 			case 8:
 				System.out.println("Which Jet do you want to remove?");
-				// jet.remove from arraylist
 				System.out.println();
-				menu();
+				airField.removePlane(kb);
+				System.out.println();
 				break;
 			case 9:
+				menu = false;
 				System.out.println("Thanks for Playing!");
 				break;
 
 			default:
 				System.out.println("Please enter a valid choice");
-				System.out.println();
-				menu();
-				break;
 			}
-//			} while (playerChoice != 9);
+		}
 	}
 
 }
